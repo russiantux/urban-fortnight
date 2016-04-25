@@ -1,4 +1,4 @@
-﻿Build started 4/5/2016 12:17:41 PM.
+﻿Build started 4/23/2016 9:11:00 PM.
      1>Project "E:\cryoffear\source-sdk-2013\mp\src\game\client\client_hl2mp.vcxproj" on node 3 (Rebuild target(s)).
      1>PreBuildEvent:
          if EXIST ..\..\..\game\mod_hl2mp\bin\.\client.dll for /f "delims=" %%A in ('attrib "..\..\..\game\mod_hl2mp\bin\.\client.dll"') do set valveTmpIsReadOnly="%%A"
@@ -41,6 +41,9 @@
          basecombatcharacter_shared.cpp
          basecombatweapon_shared.cpp
          baseentity_shared.cpp
+     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\basecombatweapon_shared.cpp(128): error C2065: 'viewmodel_adjust_enabled' : undeclared identifier
+     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\basecombatweapon_shared.cpp(128): error C2228: left of '.GetBool' must have class/struct/union
+                 type is 'unknown-type'
          basegrenade_shared.cpp
          baseparticleentity.cpp
          baseplayer_shared.cpp
@@ -48,9 +51,19 @@
          baseprojectile.cpp
          baseviewmodel_shared.cpp
          beam_shared.cpp
-         beamdraw.cpp
+     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\baseviewmodel_shared.cpp(703): error C2039: 'm_flIronsightedTime' : is not a member of 'C_BaseCombatWeapon'
+                 e:\cryoffear\source-sdk-2013\mp\src\game\shared\basecombatweapon_shared.h(177) : see declaration of 'C_BaseCombatWeapon'
+     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\baseviewmodel_shared.cpp(704): error C2039: 'IsIronsighted' : is not a member of 'C_BaseCombatWeapon'
+                 e:\cryoffear\source-sdk-2013\mp\src\game\shared\basecombatweapon_shared.h(177) : see declaration of 'C_BaseCombatWeapon'
+     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\baseviewmodel_shared.cpp(716): error C2039: 'GetIronsightPositionOffset' : is not a member of 'C_BaseCombatWeapon'
+                 e:\cryoffear\source-sdk-2013\mp\src\game\shared\basecombatweapon_shared.h(177) : see declaration of 'C_BaseCombatWeapon'
+     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\baseviewmodel_shared.cpp(721): error C2039: 'GetIronsightAngleOffset' : is not a member of 'C_BaseCombatWeapon'
+                 e:\cryoffear\source-sdk-2013\mp\src\game\shared\basecombatweapon_shared.h(177) : see declaration of 'C_BaseCombatWeapon'
      1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\baseviewmodel_shared.cpp(728): error C2084: function 'void C_BaseViewModel::CalcViewModelView(C_BasePlayer *,const Vector &,const QAngle &)' already has a body
                  e:\cryoffear\source-sdk-2013\mp\src\game\shared\baseviewmodel_shared.h(56) : see previous definition of 'CalcViewModelView'
+     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\baseviewmodel_shared.cpp(738): error C2039: 'IsIronsighted' : is not a member of 'C_BaseCombatWeapon'
+                 e:\cryoffear\source-sdk-2013\mp\src\game\shared\basecombatweapon_shared.h(177) : see declaration of 'C_BaseCombatWeapon'
+         beamdraw.cpp
          bone_accessor.cpp
          bone_merge_cache.cpp
          c_ai_basehumanoid.cpp
@@ -435,6 +448,8 @@
          weapon_physcannon.cpp
          weapon_pistol.cpp
          weapon_rpg.cpp
+         weapon_shotgun.cpp
+         weapon_slam.cpp
      1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(333): error C2059: syntax error : 'bad suffix on number'
      1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(333): error C2146: syntax error : missing ')' before identifier 'f'
      1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(333): error C2660: 'SharedRandomFloat' : function does not take 2 arguments
@@ -443,8 +458,6 @@
      1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(334): error C2146: syntax error : missing ')' before identifier 'f'
      1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(334): error C2660: 'SharedRandomFloat' : function does not take 2 arguments
      1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(334): error C2059: syntax error : ')'
-         weapon_shotgun.cpp
-         weapon_slam.cpp
          weapon_smg1.cpp
          weapon_stunstick.cpp
          in_sixense.cpp
@@ -520,4 +533,4 @@
 
 Build FAILED.
 
-Time Elapsed 00:04:43.42
+Time Elapsed 00:01:52.24

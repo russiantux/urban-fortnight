@@ -711,7 +711,7 @@ float CBaseCombatWeapon::GetWeaponIdleTime( void )
 //-----------------------------------------------------------------------------
 void CBaseCombatWeapon::Drop( const Vector &vecVelocity )
 {
-	DisableIronsights();
+	
 
 #if !defined( CLIENT_DLL )
 
@@ -1514,7 +1514,7 @@ Activity CBaseCombatWeapon::GetDrawActivity( void )
 bool CBaseCombatWeapon::Holster( CBaseCombatWeapon *pSwitchingTo )
 { 
 
-	DisableIronsights();
+	
 
 	MDLCACHE_CRITICAL_SECTION();
 
@@ -2065,8 +2065,7 @@ void CBaseCombatWeapon::StopWeaponSound( WeaponSound_t sound_type )
 //-----------------------------------------------------------------------------
 bool CBaseCombatWeapon::DefaultReload( int iClipSize1, int iClipSize2, int iActivity )
 {
-	DisableIronsights();
-
+	
 	CBaseCombatCharacter *pOwner = GetOwner();
 	if (!pOwner)
 		return false;
@@ -2678,12 +2677,7 @@ BEGIN_PREDICTION_DATA( CBaseCombatWeapon )
 	DEFINE_PRED_FIELD( m_iSecondaryAmmoType, FIELD_INTEGER, FTYPEDESC_INSENDTABLE ),
 	DEFINE_PRED_FIELD( m_iClip1, FIELD_INTEGER, FTYPEDESC_INSENDTABLE ),			
 	DEFINE_PRED_FIELD( m_iClip2, FIELD_INTEGER, FTYPEDESC_INSENDTABLE ),
-	//
-	DEFINE_PRED_FIELD(m_bIsIronsighted, FIELD_BOOLEAN, FTYPEDESC_INSENDTABLE),
-	DEFINE_PRED_FIELD(m_flIronsightedTime, FIELD_FLOAT, FTYPEDESC_INSENDTABLE),
-	DEFINE_FIELD(m_bIsIronsighted, FIELD_BOOLEAN),
-	DEFINE_FIELD(m_flIronsightedTime, FIELD_FLOAT),
-	//
+
 
 	DEFINE_PRED_FIELD( m_nViewModelIndex, FIELD_INTEGER, FTYPEDESC_INSENDTABLE ),
 
@@ -2892,16 +2886,7 @@ void CBaseCombatWeapon::RecvProxy_WeaponState( const CRecvProxyData *pData, void
 #define RecvPropTime RecvPropFloat
 #endif
 
-//more ironsights 
-void RecvProxy_ToggleSights(const CRecvProxyData* pData, void* pStruct, void* pOut)
-{
-	CBaseCombatWeapon *pWeapon = (CBaseCombatWeapon*)pStruct;
-	if (pData->m_Value.m_Int)
-		pWeapon->EnableIronsights();
-	else
-		pWeapon->DisableIronsights();
-}
-//
+
 
 //-----------------------------------------------------------------------------
 // Purpose: Propagation data for weapons. Only sent when a player's holding it.
@@ -2921,8 +2906,7 @@ BEGIN_NETWORK_TABLE_NOBASE( CBaseCombatWeapon, DT_LocalActiveWeaponData )
 	RecvPropTime( RECVINFO( m_flNextSecondaryAttack ) ),
 	RecvPropInt( RECVINFO( m_nNextThinkTick ) ),
 	RecvPropTime( RECVINFO( m_flTimeWeaponIdle ) ),
-	RecvPropInt(RECVINFO(m_bIsIronsighted), 0, RecvProxy_ToggleSights), //note: RecvPropBool is actually RecvPropInt (see its implementation), but we need a proxy
-	RecvPropFloat(RECVINFO(m_flIronsightedTime)),
+	
 #endif
 END_NETWORK_TABLE()
 

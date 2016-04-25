@@ -616,14 +616,6 @@ public:
 	CNetworkVar( int, m_iClip2 );				// number of shots left in the secondary weapon clip, -1 it not used
 
 
-	virtual bool				HasIronsights(void) { return true; } //default yes; override and return false for weapons with no ironsights (like weapon_crowbar)
-	bool					IsIronsighted(void);
-	void					ToggleIronsights(void);
-	void					EnableIronsights(void);
-	void					DisableIronsights(void);
-	void					SetIronsightTime(void);
-
-	//
 	bool					m_bMagazineStyleReloads;	// true if this weapon reloads by removing magazines (remaining bullets)
 	bool					m_bFiresUnderwater;		// true if this weapon can fire underwater
 	bool					m_bAltFiresUnderwater;		// true if this weapon can fire underwater
