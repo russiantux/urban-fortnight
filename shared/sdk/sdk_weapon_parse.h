@@ -1,3 +1,4 @@
+
 //========= Copyright Valve Corporation, All rights reserved. ============//
 //
 // Purpose: 
@@ -23,6 +24,12 @@ public:
 	
 	CSDKWeaponInfo();
 	
+
+	//jorg40 - ironsight
+	Vector m_expOffset; //ADDED
+	QAngle m_expOriOffset; //ADDED
+
+
 	virtual void Parse( ::KeyValues *pKeyValuesData, const char *szWeaponName );
 
 	char m_szAnimExtension[16];		// string used to generate player animations with this weapon

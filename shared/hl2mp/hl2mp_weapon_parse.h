@@ -28,6 +28,13 @@ public:
 
 public:
 
+
+
+	//jorg40 - ironsight
+	Vector m_expOffset; //ADDED
+	QAngle m_expOriOffset; //ADDED
+
+
 	int m_iPlayerDamage;
 };
 

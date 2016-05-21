@@ -110,42 +110,7 @@ CBaseCombatWeapon::CBaseCombatWeapon()
 #endif // TF
 }
 
-//ironsights
-void vm_adjust_enable_callback(IConVar *pConVar, char const *pOldString, float flOldValue)
-{
-	ConVarRef sv_cheats("sv_cheats");
-	if (!sv_cheats.IsValid() || sv_cheats.GetBool())
-		return;
 
-	ConVarRef var(pConVar);
-
-	if (var.GetBool())
-		var.SetValue("0");
-}
-
-void vm_adjust_fov_callback(IConVar *pConVar, char const *pOldString, float flOldValue)
-{
-	if (!viewmodel_adjust_enabled.GetBool())
-		return;
-
-	ConVarRef var(pConVar);
-
-	CBasePlayer *pPlayer =
-#ifdef GAME_DLL
-		UTIL_GetCommandClient();
-#else
-		C_BasePlayer::GetLocalPlayer();
-#endif
-	if (!pPlayer)
-		return;
-
-	if (!pPlayer->SetFOV(pPlayer, pPlayer->GetDefaultFOV() + var.GetFloat(), 0.1f))
-	{
-		Warning("Could not set FOV\n");
-		var.SetValue("0");
-	}
-}
-//
 
 //-----------------------------------------------------------------------------
 // Purpose: Destructor

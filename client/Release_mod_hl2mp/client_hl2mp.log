@@ -1,4 +1,4 @@
-﻿Build started 4/23/2016 9:11:00 PM.
+﻿Build started 4/27/2016 6:35:09 PM.
      1>Project "E:\cryoffear\source-sdk-2013\mp\src\game\client\client_hl2mp.vcxproj" on node 3 (Rebuild target(s)).
      1>PreBuildEvent:
          if EXIST ..\..\..\game\mod_hl2mp\bin\.\client.dll for /f "delims=" %%A in ('attrib "..\..\..\game\mod_hl2mp\bin\.\client.dll"') do set valveTmpIsReadOnly="%%A"
@@ -10,10 +10,10 @@
          :VCEnd
        CustomBuild:
          Compiling pointeroverride.asm
-          Assembling: E:\cryoffear\source-sdk-2013\mp\src\public\tier0\pointeroverride.asm
          Microsoft (R) Macro Assembler Version 12.00.31101.0
          Copyright (C) Microsoft Corporation.  All rights reserved.
          
+          Assembling: E:\cryoffear\source-sdk-2013\mp\src\public\tier0\pointeroverride.asm
          Running VPC CRC Check - client_hl2mp.vpc
        ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\ /I..\..\common /I..\..\public /I..\..\public\tier0 /I..\..\public\tier1 /I..\..\game\client\generated_proto_mod_hl2mp /I"..\..\thirdparty\protobuf-2.3.0\src" /I..\..\vgui2\include /I..\..\vgui2\controls /I..\..\game\shared /I.\game_controls /I..\..\thirdparty\sixensesdk\include /Ihl2mp\ui /I.\hl2mp /I..\..\game\shared\hl2mp /I.\hl2 /I.\hl2\elements /I..\..\game\shared\hl2 /Zi /nologo /W4 /WX /MP /O2 /Ob2 /Oi /Ot /Oy- /D VPC /D RAD_TELEMETRY_DISABLED /D WIN32 /D _WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _ALLOW_RUNTIME_LIBRARY_MISMATCH /D _ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH /D _ALLOW_MSC_VER_MISMATCH /D _USING_V110_SDK71_ /D _WINDLL /D _MBCS /D COMPILER_MSVC32 /D COMPILER_MSVC32 /D COMPILER_MSVC /D _DLL_EXT=.dll /D DLLNAME=client /D BINK_VIDEO /D AVI_VIDEO /D WMV_VIDEO /D DEV_BUILD /D FRAME_POINTER_OMISSION_DISABLED /D NO_STRING_T /D CLIENT_DLL /D VECTOR /D VERSION_SAFE_STEAM_API_INTERFACES /D PROTECTED_THINGS_ENABLE /D strncpy=use_Q_strncpy_instead /D _snprintf=use_Q_snprintf_instead /D fopen=dont_use_fopen /D HL2MP /D HL2_CLIENT_DLL /D _EXTERNAL_DLL_EXT=.dll /D VPCGAMECAPS=HL2MP /D "PROJECTDIR=E:\cryoffear\source-sdk-2013\mp\src\game\client" /D _DLL_EXT=.dll /D VPCGAME=hl2mp /D SOURCE1=1 /GF /Gm- /MT /GS /Gy /arch:SSE /fp:fast /Zc:wchar_t /Zc:forScope /GR /Yc"cbase.h" /Fp".\Release_mod_hl2mp\/client.pch" /Fo".\Release_mod_hl2mp\/" /Fd".\Release_mod_hl2mp\/vc120.pdb" /Gd /TP /wd4316 /analyze- /FC /errorReport:prompt /Zm200 /Zo /Gw /Zc:inline stdafx.cpp
@@ -41,9 +41,6 @@
          basecombatcharacter_shared.cpp
          basecombatweapon_shared.cpp
          baseentity_shared.cpp
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\basecombatweapon_shared.cpp(128): error C2065: 'viewmodel_adjust_enabled' : undeclared identifier
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\basecombatweapon_shared.cpp(128): error C2228: left of '.GetBool' must have class/struct/union
-                 type is 'unknown-type'
          basegrenade_shared.cpp
          baseparticleentity.cpp
          baseplayer_shared.cpp
@@ -51,18 +48,6 @@
          baseprojectile.cpp
          baseviewmodel_shared.cpp
          beam_shared.cpp
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\baseviewmodel_shared.cpp(703): error C2039: 'm_flIronsightedTime' : is not a member of 'C_BaseCombatWeapon'
-                 e:\cryoffear\source-sdk-2013\mp\src\game\shared\basecombatweapon_shared.h(177) : see declaration of 'C_BaseCombatWeapon'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\baseviewmodel_shared.cpp(704): error C2039: 'IsIronsighted' : is not a member of 'C_BaseCombatWeapon'
-                 e:\cryoffear\source-sdk-2013\mp\src\game\shared\basecombatweapon_shared.h(177) : see declaration of 'C_BaseCombatWeapon'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\baseviewmodel_shared.cpp(716): error C2039: 'GetIronsightPositionOffset' : is not a member of 'C_BaseCombatWeapon'
-                 e:\cryoffear\source-sdk-2013\mp\src\game\shared\basecombatweapon_shared.h(177) : see declaration of 'C_BaseCombatWeapon'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\baseviewmodel_shared.cpp(721): error C2039: 'GetIronsightAngleOffset' : is not a member of 'C_BaseCombatWeapon'
-                 e:\cryoffear\source-sdk-2013\mp\src\game\shared\basecombatweapon_shared.h(177) : see declaration of 'C_BaseCombatWeapon'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\baseviewmodel_shared.cpp(728): error C2084: function 'void C_BaseViewModel::CalcViewModelView(C_BasePlayer *,const Vector &,const QAngle &)' already has a body
-                 e:\cryoffear\source-sdk-2013\mp\src\game\shared\baseviewmodel_shared.h(56) : see previous definition of 'CalcViewModelView'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\baseviewmodel_shared.cpp(738): error C2039: 'IsIronsighted' : is not a member of 'C_BaseCombatWeapon'
-                 e:\cryoffear\source-sdk-2013\mp\src\game\shared\basecombatweapon_shared.h(177) : see declaration of 'C_BaseCombatWeapon'
          beamdraw.cpp
          bone_accessor.cpp
          bone_merge_cache.cpp
@@ -450,14 +435,6 @@
          weapon_rpg.cpp
          weapon_shotgun.cpp
          weapon_slam.cpp
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(333): error C2059: syntax error : 'bad suffix on number'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(333): error C2146: syntax error : missing ')' before identifier 'f'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(333): error C2660: 'SharedRandomFloat' : function does not take 2 arguments
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(333): error C2059: syntax error : ')'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(334): error C2059: syntax error : 'bad suffix on number'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(334): error C2146: syntax error : missing ')' before identifier 'f'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(334): error C2660: 'SharedRandomFloat' : function does not take 2 arguments
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(334): error C2059: syntax error : ')'
          weapon_smg1.cpp
          weapon_stunstick.cpp
          in_sixense.cpp
@@ -529,8 +506,599 @@
          bonelist.cpp
          entity_client_tools.cpp
          toolframework_client.cpp
-     1>Done Building Project "E:\cryoffear\source-sdk-2013\mp\src\game\client\client_hl2mp.vcxproj" (Rebuild target(s)) -- FAILED.
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\ /I..\..\common /I..\..\public /I..\..\public\tier0 /I..\..\public\tier1 /I..\..\game\client\generated_proto_mod_hl2mp /I"..\..\thirdparty\protobuf-2.3.0\src" /I..\..\vgui2\include /I..\..\vgui2\controls /I..\..\game\shared /I.\game_controls /I..\..\thirdparty\sixensesdk\include /Ihl2mp\ui /I.\hl2mp /I..\..\game\shared\hl2mp /I.\hl2 /I.\hl2\elements /I..\..\game\shared\hl2 /Zi /nologo /W4 /WX /MP /O2 /Ob2 /Oi /Ot /Oy- /D VPC /D RAD_TELEMETRY_DISABLED /D WIN32 /D _WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _ALLOW_RUNTIME_LIBRARY_MISMATCH /D _ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH /D _ALLOW_MSC_VER_MISMATCH /D _USING_V110_SDK71_ /D _WINDLL /D _MBCS /D COMPILER_MSVC32 /D COMPILER_MSVC32 /D COMPILER_MSVC /D _DLL_EXT=.dll /D DLLNAME=client /D BINK_VIDEO /D AVI_VIDEO /D WMV_VIDEO /D DEV_BUILD /D FRAME_POINTER_OMISSION_DISABLED /D NO_STRING_T /D CLIENT_DLL /D VECTOR /D VERSION_SAFE_STEAM_API_INTERFACES /D PROTECTED_THINGS_ENABLE /D strncpy=use_Q_strncpy_instead /D _snprintf=use_Q_snprintf_instead /D fopen=dont_use_fopen /D HL2MP /D HL2_CLIENT_DLL /D _EXTERNAL_DLL_EXT=.dll /D VPCGAMECAPS=HL2MP /D "PROJECTDIR=E:\cryoffear\source-sdk-2013\mp\src\game\client" /D _DLL_EXT=.dll /D VPCGAME=hl2mp /D SOURCE1=1 /GF /Gm- /MT /GS /Gy /arch:SSE /fp:fast /Zc:wchar_t /Zc:forScope /GR /Fo".\Release_mod_hl2mp\/" /Fd".\Release_mod_hl2mp\/vc120.pdb" /Gd /TP /wd4316 /analyze- /FC /errorReport:prompt /Zm200 /Zo /Gw /Zc:inline ..\..\public\bone_setup.cpp ..\..\public\client_class.cpp ..\..\public\collisionutils.cpp ..\..\common\compiledcaptionswap.cpp ..\..\public\crtmemdebug.cpp ..\..\public\dt_recv.cpp ..\..\public\dt_utlvector_common.cpp ..\..\public\dt_utlvector_recv.cpp ..\..\public\filesystem_helpers.cpp hud_lcd.cpp in_mouse.cpp ..\..\public\interpolatortypes.cpp ..\..\game\shared\interval.cpp ..\..\public\jigglebones.cpp ..\..\common\language.cpp ..\..\public\tier0\memoverride.cpp mumble.cpp ..\..\public\networkvar.cpp ..\..\public\posedebugger.cpp ..\..\common\randoverride.cpp ..\..\public\renamed_recvtable_compat.cpp rendertexture.cpp ..\..\public\rope_physics.cpp ..\..\public\scratchpad3d.cpp ..\..\public\ScratchPadUtils.cpp ..\..\public\sentence.cpp ..\..\game\shared\sheetsimulator.cpp ..\..\public\simple_physics.cpp ..\..\public\stringregistry.cpp ..\..\public\studio.cpp ..\..\public\vallocator.cpp ..\..\public\vgui_controls\vgui_controls.cpp
+         bone_setup.cpp
+         client_class.cpp
+         collisionutils.cpp
+         compiledcaptionswap.cpp
+         crtmemdebug.cpp
+         dt_recv.cpp
+         dt_utlvector_common.cpp
+         dt_utlvector_recv.cpp
+         filesystem_helpers.cpp
+         hud_lcd.cpp
+         in_mouse.cpp
+         interpolatortypes.cpp
+         interval.cpp
+         jigglebones.cpp
+         language.cpp
+         memoverride.cpp
+         mumble.cpp
+         networkvar.cpp
+         posedebugger.cpp
+         randoverride.cpp
+         renamed_recvtable_compat.cpp
+         rendertexture.cpp
+         rope_physics.cpp
+         scratchpad3d.cpp
+         ScratchPadUtils.cpp
+         sentence.cpp
+         sheetsimulator.cpp
+         simple_physics.cpp
+         stringregistry.cpp
+         studio.cpp
+         vallocator.cpp
+         vgui_controls.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Release_mod_hl2mp\\client.dll" /INCREMENTAL:NO /NOLOGO /LIBPATH:..\..\lib\common\. /LIBPATH:..\..\lib\public\. shell32.lib user32.lib advapi32.lib gdi32.lib comdlg32.lib ole32.lib winmm.lib /NODEFAULTLIB:libc /NODEFAULTLIB:libcd /NODEFAULTLIB:libcmtd /MANIFEST:NO /DEBUG /PDB:".\Release_mod_hl2mp\/client.pdb" /SUBSYSTEM:WINDOWS,"5.01" /OPT:REF /OPT:NOICF /TLBID:1 /DYNAMICBASE:NO /NXCOMPAT /MACHINE:X86 /SAFESEH:NO  /ignore:4221 /DLL .\Release_mod_hl2mp\\pointeroverride.obj
+         .\Release_mod_hl2mp\/mp3player.obj
+         .\Release_mod_hl2mp\/cdll_replay.obj
+         .\Release_mod_hl2mp\/replaycamera.obj
+         .\Release_mod_hl2mp\/achievement_notification_panel.obj
+         .\Release_mod_hl2mp\/achievement_saverestore.obj
+         .\Release_mod_hl2mp\/achievementmgr.obj
+         .\Release_mod_hl2mp\/achievements_hlx.obj
+         .\Release_mod_hl2mp\/activitylist.obj
+         .\Release_mod_hl2mp\/alphamaterialproxy.obj
+         .\Release_mod_hl2mp\/ammodef.obj
+         .\Release_mod_hl2mp\/animatedentitytextureproxy.obj
+         .\Release_mod_hl2mp\/animatedoffsettextureproxy.obj
+         .\Release_mod_hl2mp\/animatedtextureproxy.obj
+         .\Release_mod_hl2mp\/AnimateSpecificTextureProxy.obj
+         .\Release_mod_hl2mp\/animation.obj
+         .\Release_mod_hl2mp\/base_playeranimstate.obj
+         .\Release_mod_hl2mp\/baseachievement.obj
+         .\Release_mod_hl2mp\/baseanimatedtextureproxy.obj
+         .\Release_mod_hl2mp\/baseclientrendertargets.obj
+         .\Release_mod_hl2mp\/basecombatcharacter_shared.obj
+         .\Release_mod_hl2mp\/basecombatweapon_shared.obj
+         .\Release_mod_hl2mp\/baseentity_shared.obj
+         .\Release_mod_hl2mp\/basegrenade_shared.obj
+         .\Release_mod_hl2mp\/baseparticleentity.obj
+         .\Release_mod_hl2mp\/baseplayer_shared.obj
+         .\Release_mod_hl2mp\/basepresence.obj
+         .\Release_mod_hl2mp\/baseprojectile.obj
+         .\Release_mod_hl2mp\/baseviewmodel_shared.obj
+         .\Release_mod_hl2mp\/beam_shared.obj
+         .\Release_mod_hl2mp\/beamdraw.obj
+         .\Release_mod_hl2mp\/bone_accessor.obj
+         .\Release_mod_hl2mp\/bone_merge_cache.obj
+         .\Release_mod_hl2mp\/bone_setup.obj
+         .\Release_mod_hl2mp\/c_ai_basehumanoid.obj
+         .\Release_mod_hl2mp\/c_ai_basenpc.obj
+         .\Release_mod_hl2mp\/c_baseanimating.obj
+         .\Release_mod_hl2mp\/c_baseanimatingoverlay.obj
+         .\Release_mod_hl2mp\/c_basecombatcharacter.obj
+         .\Release_mod_hl2mp\/c_basecombatweapon.obj
+         .\Release_mod_hl2mp\/c_basedoor.obj
+         .\Release_mod_hl2mp\/c_baseentity.obj
+         .\Release_mod_hl2mp\/c_baseflex.obj
+         .\Release_mod_hl2mp\/c_baseplayer.obj
+         .\Release_mod_hl2mp\/c_baseviewmodel.obj
+         .\Release_mod_hl2mp\/c_breakableprop.obj
+         .\Release_mod_hl2mp\/c_colorcorrection.obj
+         .\Release_mod_hl2mp\/c_colorcorrectionvolume.obj
+         .\Release_mod_hl2mp\/c_dynamiclight.obj
+         .\Release_mod_hl2mp\/c_entitydissolve.obj
+         .\Release_mod_hl2mp\/c_entityparticletrail.obj
+         .\Release_mod_hl2mp\/c_env_fog_controller.obj
+         .\Release_mod_hl2mp\/c_env_particlescript.obj
+         .\Release_mod_hl2mp\/c_env_projectedtexture.obj
+         .\Release_mod_hl2mp\/c_env_screenoverlay.obj
+         .\Release_mod_hl2mp\/c_env_tonemap_controller.obj
+         .\Release_mod_hl2mp\/c_fire_smoke.obj
+         .\Release_mod_hl2mp\/c_fish.obj
+         .\Release_mod_hl2mp\/c_func_areaportalwindow.obj
+         .\Release_mod_hl2mp\/c_func_breakablesurf.obj
+         .\Release_mod_hl2mp\/c_func_conveyor.obj
+         .\Release_mod_hl2mp\/c_func_dust.obj
+         .\Release_mod_hl2mp\/c_func_lod.obj
+         .\Release_mod_hl2mp\/C_Func_Monitor.obj
+         .\Release_mod_hl2mp\/c_func_occluder.obj
+         .\Release_mod_hl2mp\/c_func_reflective_glass.obj
+         .\Release_mod_hl2mp\/c_func_rotating.obj
+         .\Release_mod_hl2mp\/c_func_smokevolume.obj
+         .\Release_mod_hl2mp\/c_func_tracktrain.obj
+         .\Release_mod_hl2mp\/c_gib.obj
+         .\Release_mod_hl2mp\/c_hairball.obj
+         .\Release_mod_hl2mp\/c_info_overlay_accessor.obj
+         .\Release_mod_hl2mp\/c_lightglow.obj
+         .\Release_mod_hl2mp\/C_MaterialModifyControl.obj
+         .\Release_mod_hl2mp\/c_particle_system.obj
+         .\Release_mod_hl2mp\/c_physbox.obj
+         .\Release_mod_hl2mp\/c_physicsprop.obj
+         .\Release_mod_hl2mp\/c_physmagnet.obj
+         .\Release_mod_hl2mp\/c_pixel_visibility.obj
+         .\Release_mod_hl2mp\/c_plasma.obj
+         .\Release_mod_hl2mp\/c_playerresource.obj
+         .\Release_mod_hl2mp\/c_point_camera.obj
+         .\Release_mod_hl2mp\/c_point_commentary_node.obj
+         .\Release_mod_hl2mp\/c_props.obj
+         .\Release_mod_hl2mp\/c_ragdoll_manager.obj
+         .\Release_mod_hl2mp\/c_rope.obj
+         .\Release_mod_hl2mp\/c_rumble.obj
+         .\Release_mod_hl2mp\/c_sceneentity.obj
+         .\Release_mod_hl2mp\/c_shadowcontrol.obj
+         .\Release_mod_hl2mp\/c_slideshow_display.obj
+         .\Release_mod_hl2mp\/c_soundscape.obj
+         .\Release_mod_hl2mp\/c_spotlight_end.obj
+         .\Release_mod_hl2mp\/c_sprite.obj
+         .\Release_mod_hl2mp\/c_sprite_perfmonitor.obj
+         .\Release_mod_hl2mp\/c_sun.obj
+         .\Release_mod_hl2mp\/c_team.obj
+         .\Release_mod_hl2mp\/c_team_objectiveresource.obj
+         .\Release_mod_hl2mp\/c_team_train_watcher.obj
+         .\Release_mod_hl2mp\/c_tesla.obj
+         .\Release_mod_hl2mp\/c_test_proxytoggle.obj
+         .\Release_mod_hl2mp\/c_user_message_register.obj
+         .\Release_mod_hl2mp\/c_vehicle_choreo_generic.obj
+         .\Release_mod_hl2mp\/c_vehicle_jeep.obj
+         .\Release_mod_hl2mp\/c_vguiscreen.obj
+         .\Release_mod_hl2mp\/c_vote_controller.obj
+         .\Release_mod_hl2mp\/c_waterbullet.obj
+         .\Release_mod_hl2mp\/C_WaterLODControl.obj
+         .\Release_mod_hl2mp\/c_world.obj
+         .\Release_mod_hl2mp\/cam_thirdperson.obj
+         .\Release_mod_hl2mp\/camomaterialproxy.obj
+         .\Release_mod_hl2mp\/cdll_bounded_cvars.obj
+         .\Release_mod_hl2mp\/cdll_client_int.obj
+         .\Release_mod_hl2mp\/cdll_util.obj
+         .\Release_mod_hl2mp\/cl_mat_stub.obj
+         .\Release_mod_hl2mp\/classmap.obj
+         .\Release_mod_hl2mp\/client_class.obj
+         .\Release_mod_hl2mp\/client_factorylist.obj
+         .\Release_mod_hl2mp\/client_thinklist.obj
+         .\Release_mod_hl2mp\/client_virtualreality.obj
+         .\Release_mod_hl2mp\/clienteffectprecachesystem.obj
+         .\Release_mod_hl2mp\/cliententitylist.obj
+         .\Release_mod_hl2mp\/clientleafsystem.obj
+         .\Release_mod_hl2mp\/clientmode_shared.obj
+         .\Release_mod_hl2mp\/clientshadowmgr.obj
+         .\Release_mod_hl2mp\/clientsideeffects.obj
+         .\Release_mod_hl2mp\/clientsideeffects_test.obj
+         .\Release_mod_hl2mp\/clientsteamcontext.obj
+         .\Release_mod_hl2mp\/collisionproperty.obj
+         .\Release_mod_hl2mp\/collisionutils.obj
+         .\Release_mod_hl2mp\/colorcorrectionmgr.obj
+         .\Release_mod_hl2mp\/commentary_modelviewer.obj
+         .\Release_mod_hl2mp\/compiledcaptionswap.obj
+         .\Release_mod_hl2mp\/crtmemdebug.obj
+         .\Release_mod_hl2mp\/death_pose.obj
+         .\Release_mod_hl2mp\/debugoverlay_shared.obj
+         .\Release_mod_hl2mp\/decals.obj
+         .\Release_mod_hl2mp\/detailobjectsystem.obj
+         .\Release_mod_hl2mp\/dt_recv.obj
+         .\Release_mod_hl2mp\/dt_utlvector_common.obj
+         .\Release_mod_hl2mp\/dt_utlvector_recv.obj
+         .\Release_mod_hl2mp\/dummyproxy.obj
+         .\Release_mod_hl2mp\/effect_dispatch_data.obj
+         .\Release_mod_hl2mp\/EffectsClient.obj
+         .\Release_mod_hl2mp\/ehandle.obj
+         .\Release_mod_hl2mp\/entitylist_base.obj
+         .\Release_mod_hl2mp\/entityoriginmaterialproxy.obj
+         .\Release_mod_hl2mp\/EntityParticleTrail_Shared.obj
+         .\Release_mod_hl2mp\/env_detail_controller.obj
+         .\Release_mod_hl2mp\/env_wind_shared.obj
+         .\Release_mod_hl2mp\/eventlist.obj
+         .\Release_mod_hl2mp\/filesystem_helpers.obj
+         .\Release_mod_hl2mp\/flashlighteffect.obj
+         .\Release_mod_hl2mp\/func_ladder.obj
+         .\Release_mod_hl2mp\/functionproxy.obj
+         .\Release_mod_hl2mp\/fx_blood.obj
+         .\Release_mod_hl2mp\/fx_cube.obj
+         .\Release_mod_hl2mp\/fx_explosion.obj
+         .\Release_mod_hl2mp\/fx_fleck.obj
+         .\Release_mod_hl2mp\/fx_impact.obj
+         .\Release_mod_hl2mp\/fx_interpvalue.obj
+         .\Release_mod_hl2mp\/fx_quad.obj
+         .\Release_mod_hl2mp\/fx_shelleject.obj
+         .\Release_mod_hl2mp\/fx_staticline.obj
+         .\Release_mod_hl2mp\/fx_tracer.obj
+         .\Release_mod_hl2mp\/fx_trail.obj
+         .\Release_mod_hl2mp\/fx_water.obj
+         .\Release_mod_hl2mp\/gamemovement.obj
+         .\Release_mod_hl2mp\/gamerules.obj
+         .\Release_mod_hl2mp\/gamerules_register.obj
+         .\Release_mod_hl2mp\/GameStats.obj
+         .\Release_mod_hl2mp\/gamestringpool.obj
+         .\Release_mod_hl2mp\/gametrace_client.obj
+         .\Release_mod_hl2mp\/gamevars_shared.obj
+         .\Release_mod_hl2mp\/geiger.obj
+         .\Release_mod_hl2mp\/glow_outline_effect.obj
+         .\Release_mod_hl2mp\/glow_overlay.obj
+         .\Release_mod_hl2mp\/haptic_msgs.obj
+         .\Release_mod_hl2mp\/haptic_utils.obj
+         .\Release_mod_hl2mp\/hintmessage.obj
+         .\Release_mod_hl2mp\/hintsystem.obj
+         .\Release_mod_hl2mp\/history_resource.obj
+         .\Release_mod_hl2mp\/hltvcamera.obj
+         .\Release_mod_hl2mp\/hud.obj
+         .\Release_mod_hl2mp\/hud_animationinfo.obj
+         .\Release_mod_hl2mp\/hud_autoaim.obj
+         .\Release_mod_hl2mp\/hud_basechat.obj
+         .\Release_mod_hl2mp\/hud_basetimer.obj
+         .\Release_mod_hl2mp\/hud_bitmapnumericdisplay.obj
+         .\Release_mod_hl2mp\/hud_closecaption.obj
+         .\Release_mod_hl2mp\/hud_crosshair.obj
+         .\Release_mod_hl2mp\/hud_element_helper.obj
+         .\Release_mod_hl2mp\/hud_filmdemo.obj
+         .\Release_mod_hl2mp\/hud_hdrdemo.obj
+         .\Release_mod_hl2mp\/hud_hintdisplay.obj
+         .\Release_mod_hl2mp\/hud_lcd.obj
+         .\Release_mod_hl2mp\/hud_msg.obj
+         .\Release_mod_hl2mp\/hud_numericdisplay.obj
+         .\Release_mod_hl2mp\/hud_pdump.obj
+         .\Release_mod_hl2mp\/hud_redraw.obj
+         .\Release_mod_hl2mp\/hud_vehicle.obj
+         .\Release_mod_hl2mp\/hud_voicestatus.obj
+         .\Release_mod_hl2mp\/hud_weapon.obj
+         .\Release_mod_hl2mp\/igamesystem.obj
+         .\Release_mod_hl2mp\/in_camera.obj
+         .\Release_mod_hl2mp\/in_joystick.obj
+         .\Release_mod_hl2mp\/in_main.obj
+         .\Release_mod_hl2mp\/in_mouse.obj
+         .\Release_mod_hl2mp\/initializer.obj
+         .\Release_mod_hl2mp\/interpolatedvar.obj
+         .\Release_mod_hl2mp\/interpolatortypes.obj
+         .\Release_mod_hl2mp\/interval.obj
+         .\Release_mod_hl2mp\/IsNPCProxy.obj
+         .\Release_mod_hl2mp\/jigglebones.obj
+         .\Release_mod_hl2mp\/lampbeamproxy.obj
+         .\Release_mod_hl2mp\/lamphaloproxy.obj
+         .\Release_mod_hl2mp\/language.obj
+         .\Release_mod_hl2mp\/mapentities_shared.obj
+         .\Release_mod_hl2mp\/mathproxy.obj
+         .\Release_mod_hl2mp\/matrixproxy.obj
+         .\Release_mod_hl2mp\/memoverride.obj
+         .\Release_mod_hl2mp\/menu.obj
+         .\Release_mod_hl2mp\/message.obj
+         .\Release_mod_hl2mp\/movehelper_client.obj
+         .\Release_mod_hl2mp\/movevars_shared.obj
+         .\Release_mod_hl2mp\/mp_shareddefs.obj
+         .\Release_mod_hl2mp\/multiplay_gamerules.obj
+         .\Release_mod_hl2mp\/mumble.obj
+         .\Release_mod_hl2mp\/networkvar.obj
+         .\Release_mod_hl2mp\/obstacle_pushaway.obj
+         .\Release_mod_hl2mp\/panelmetaclassmgr.obj
+         .\Release_mod_hl2mp\/particle_collision.obj
+         .\Release_mod_hl2mp\/particle_litsmokeemitter.obj
+         .\Release_mod_hl2mp\/particle_parse.obj
+         .\Release_mod_hl2mp\/particle_property.obj
+         .\Release_mod_hl2mp\/particle_proxies.obj
+         .\Release_mod_hl2mp\/particle_simple3d.obj
+         .\Release_mod_hl2mp\/particlemgr.obj
+         .\Release_mod_hl2mp\/particles_attractor.obj
+         .\Release_mod_hl2mp\/particles_ez.obj
+         .\Release_mod_hl2mp\/particles_localspace.obj
+         .\Release_mod_hl2mp\/particles_new.obj
+         .\Release_mod_hl2mp\/particles_simple.obj
+         .\Release_mod_hl2mp\/particlesystemquery.obj
+         .\Release_mod_hl2mp\/perfvisualbenchmark.obj
+         .\Release_mod_hl2mp\/physics.obj
+         .\Release_mod_hl2mp\/physics_main_client.obj
+         .\Release_mod_hl2mp\/physics_main_shared.obj
+         .\Release_mod_hl2mp\/physics_saverestore.obj
+         .\Release_mod_hl2mp\/physics_shared.obj
+         .\Release_mod_hl2mp\/physpropclientside.obj
+         .\Release_mod_hl2mp\/playerandobjectenumerator.obj
+         .\Release_mod_hl2mp\/playerspawncache.obj
+         .\Release_mod_hl2mp\/point_bonusmaps_accessor.obj
+         .\Release_mod_hl2mp\/point_posecontroller.obj
+         .\Release_mod_hl2mp\/posedebugger.obj
+         .\Release_mod_hl2mp\/precache_register.obj
+         .\Release_mod_hl2mp\/predictableid.obj
+         .\Release_mod_hl2mp\/predicted_viewmodel.obj
+         .\Release_mod_hl2mp\/prediction.obj
+         .\Release_mod_hl2mp\/predictioncopy.obj
+         .\Release_mod_hl2mp\/props_shared.obj
+         .\Release_mod_hl2mp\/proxyentity.obj
+         .\Release_mod_hl2mp\/ProxyHealth.obj
+         .\Release_mod_hl2mp\/proxyplayer.obj
+         .\Release_mod_hl2mp\/proxypupil.obj
+         .\Release_mod_hl2mp\/ragdoll.obj
+         .\Release_mod_hl2mp\/ragdoll_shared.obj
+         .\Release_mod_hl2mp\/randoverride.obj
+         .\Release_mod_hl2mp\/recvproxy.obj
+         .\Release_mod_hl2mp\/renamed_recvtable_compat.obj
+         .\Release_mod_hl2mp\/rendertexture.obj
+         .\Release_mod_hl2mp\/rope_helpers.obj
+         .\Release_mod_hl2mp\/rope_physics.obj
+         .\Release_mod_hl2mp\/saverestore.obj
+         .\Release_mod_hl2mp\/sceneentity_shared.obj
+         .\Release_mod_hl2mp\/scratchpad3d.obj
+         .\Release_mod_hl2mp\/ScratchPadUtils.obj
+         .\Release_mod_hl2mp\/ScreenSpaceEffects.obj
+         .\Release_mod_hl2mp\/sentence.obj
+         .\Release_mod_hl2mp\/sequence_Transitioner.obj
+         .\Release_mod_hl2mp\/sheetsimulator.obj
+         .\Release_mod_hl2mp\/simple_keys.obj
+         .\Release_mod_hl2mp\/simple_physics.obj
+         .\Release_mod_hl2mp\/simtimer.obj
+         .\Release_mod_hl2mp\/singleplay_gamerules.obj
+         .\Release_mod_hl2mp\/SoundEmitterSystem.obj
+         .\Release_mod_hl2mp\/soundenvelope.obj
+         .\Release_mod_hl2mp\/SoundParametersInternal.obj
+         .\Release_mod_hl2mp\/splinepatch.obj
+         .\Release_mod_hl2mp\/Sprite.obj
+         .\Release_mod_hl2mp\/spritemodel.obj
+         .\Release_mod_hl2mp\/SpriteTrail.obj
+         .\Release_mod_hl2mp\/stringregistry.obj
+         .\Release_mod_hl2mp\/studio.obj
+         .\Release_mod_hl2mp\/studio_shared.obj
+         .\Release_mod_hl2mp\/studio_stats.obj
+         .\Release_mod_hl2mp\/takedamageinfo.obj
+         .\Release_mod_hl2mp\/teamplay_gamerules.obj
+         .\Release_mod_hl2mp\/teamplay_round_timer.obj
+         .\Release_mod_hl2mp\/teamplayroundbased_gamerules.obj
+         .\Release_mod_hl2mp\/test_ehandle.obj
+         .\Release_mod_hl2mp\/text_message.obj
+         .\Release_mod_hl2mp\/texturescrollmaterialproxy.obj
+         .\Release_mod_hl2mp\/timematerialproxy.obj
+         .\Release_mod_hl2mp\/toggletextureproxy.obj
+         .\Release_mod_hl2mp\/train.obj
+         .\Release_mod_hl2mp\/usercmd.obj
+         .\Release_mod_hl2mp\/usermessages.obj
+         .\Release_mod_hl2mp\/util_shared.obj
+         .\Release_mod_hl2mp\/vallocator.obj
+         .\Release_mod_hl2mp\/vehicle_viewblend_shared.obj
+         .\Release_mod_hl2mp\/vgui_avatarimage.obj
+         .\Release_mod_hl2mp\/vgui_basepanel.obj
+         .\Release_mod_hl2mp\/vgui_bitmapbutton.obj
+         .\Release_mod_hl2mp\/vgui_bitmapimage.obj
+         .\Release_mod_hl2mp\/vgui_bitmappanel.obj
+         .\Release_mod_hl2mp\/vgui_centerstringpanel.obj
+         .\Release_mod_hl2mp\/vgui_consolepanel.obj
+         .\Release_mod_hl2mp\/vgui_controls.obj
+         .\Release_mod_hl2mp\/vgui_debugoverlaypanel.obj
+         .\Release_mod_hl2mp\/vgui_fpspanel.obj
+         .\Release_mod_hl2mp\/vgui_game_viewport.obj
+         .\Release_mod_hl2mp\/vgui_grid.obj
+         .\Release_mod_hl2mp\/vgui_int.obj
+         .\Release_mod_hl2mp\/vgui_loadingdiscpanel.obj
+         .\Release_mod_hl2mp\/vgui_messagechars.obj
+         .\Release_mod_hl2mp\/vgui_netgraphpanel.obj
+         .\Release_mod_hl2mp\/vgui_schemevisualizer.obj
+         .\Release_mod_hl2mp\/vgui_slideshow_display_screen.obj
+         .\Release_mod_hl2mp\/vgui_video.obj
+         .\Release_mod_hl2mp\/vgui_video_player.obj
+         .\Release_mod_hl2mp\/view.obj
+         .\Release_mod_hl2mp\/view_beams.obj
+         .\Release_mod_hl2mp\/view_effects.obj
+         .\Release_mod_hl2mp\/view_scene.obj
+         .\Release_mod_hl2mp\/viewangleanim.obj
+         .\Release_mod_hl2mp\/ViewConeImage.obj
+         .\Release_mod_hl2mp\/viewdebug.obj
+         .\Release_mod_hl2mp\/viewpostprocess.obj
+         .\Release_mod_hl2mp\/viewrender.obj
+         .\Release_mod_hl2mp\/voice_banmgr.obj
+         .\Release_mod_hl2mp\/voice_status.obj
+         .\Release_mod_hl2mp\/warp_overlay.obj
+         .\Release_mod_hl2mp\/WaterLODMaterialProxy.obj
+         .\Release_mod_hl2mp\/weapon_parse.obj
+         .\Release_mod_hl2mp\/weapon_selection.obj
+         .\Release_mod_hl2mp\/weapons_resource.obj
+         .\Release_mod_hl2mp\/WorldDimsProxy.obj
+         .\Release_mod_hl2mp\/basemodel_panel.obj
+         .\Release_mod_hl2mp\/basemodelpanel.obj
+         .\Release_mod_hl2mp\/baseviewport.obj
+         .\Release_mod_hl2mp\/ClientScoreBoardDialog.obj
+         .\Release_mod_hl2mp\/commandmenu.obj
+         .\Release_mod_hl2mp\/IconPanel.obj
+         .\Release_mod_hl2mp\/intromenu.obj
+         .\Release_mod_hl2mp\/MapOverview.obj
+         .\Release_mod_hl2mp\/NavProgress.obj
+         .\Release_mod_hl2mp\/SpectatorGUI.obj
+         .\Release_mod_hl2mp\/teammenu.obj
+         .\Release_mod_hl2mp\/vguitextwindow.obj
+         .\Release_mod_hl2mp\/basehlcombatweapon_shared.obj
+         .\Release_mod_hl2mp\/c_antlion_dust.obj
+         .\Release_mod_hl2mp\/c_ar2_explosion.obj
+         .\Release_mod_hl2mp\/c_barnacle.obj
+         .\Release_mod_hl2mp\/c_barney.obj
+         .\Release_mod_hl2mp\/c_basehelicopter.obj
+         .\Release_mod_hl2mp\/c_basehlcombatweapon.obj
+         .\Release_mod_hl2mp\/c_basehlplayer.obj
+         .\Release_mod_hl2mp\/c_citadel_effects.obj
+         .\Release_mod_hl2mp\/c_corpse.obj
+         .\Release_mod_hl2mp\/c_env_alyxtemp.obj
+         .\Release_mod_hl2mp\/c_env_headcrabcanister.obj
+         .\Release_mod_hl2mp\/c_env_starfield.obj
+         .\Release_mod_hl2mp\/c_func_tankmortar.obj
+         .\Release_mod_hl2mp\/c_hl2_playerlocaldata.obj
+         .\Release_mod_hl2mp\/c_info_teleporter_countdown.obj
+         .\Release_mod_hl2mp\/c_npc_antlionguard.obj
+         .\Release_mod_hl2mp\/c_npc_combinegunship.obj
+         .\Release_mod_hl2mp\/c_npc_manhack.obj
+         .\Release_mod_hl2mp\/c_npc_rollermine.obj
+         .\Release_mod_hl2mp\/c_plasma_beam_node.obj
+         .\Release_mod_hl2mp\/c_prop_combine_ball.obj
+         .\Release_mod_hl2mp\/c_rotorwash.obj
+         .\Release_mod_hl2mp\/c_script_intro.obj
+         .\Release_mod_hl2mp\/c_strider.obj
+         .\Release_mod_hl2mp\/c_te_concussiveexplosion.obj
+         .\Release_mod_hl2mp\/c_te_flare.obj
+         .\Release_mod_hl2mp\/c_thumper_dust.obj
+         .\Release_mod_hl2mp\/c_vehicle_airboat.obj
+         .\Release_mod_hl2mp\/c_vehicle_cannon.obj
+         .\Release_mod_hl2mp\/c_vehicle_crane.obj
+         .\Release_mod_hl2mp\/c_vehicle_prisoner_pod.obj
+         .\Release_mod_hl2mp\/c_vort_charge_token.obj
+         .\Release_mod_hl2mp\/c_weapon__stubs_hl2.obj
+         .\Release_mod_hl2mp\/c_weapon_crossbow.obj
+         .\Release_mod_hl2mp\/env_headcrabcanister_shared.obj
+         .\Release_mod_hl2mp\/fx_antlion.obj
+         .\Release_mod_hl2mp\/fx_bugbait.obj
+         .\Release_mod_hl2mp\/fx_hl2_impacts.obj
+         .\Release_mod_hl2mp\/fx_hl2_tracers.obj
+         .\Release_mod_hl2mp\/hl2_clientmode.obj
+         .\Release_mod_hl2mp\/hl2_gamerules.obj
+         .\Release_mod_hl2mp\/hl2_usermessages.obj
+         .\Release_mod_hl2mp\/hl_gamemovement.obj
+         .\Release_mod_hl2mp\/hl_in_main.obj
+         .\Release_mod_hl2mp\/hl_prediction.obj
+         .\Release_mod_hl2mp\/hud_ammo.obj
+         .\Release_mod_hl2mp\/hud_battery.obj
+         .\Release_mod_hl2mp\/hud_blood.obj
+         .\Release_mod_hl2mp\/hud_credits.obj
+         .\Release_mod_hl2mp\/hud_damageindicator.obj
+         .\Release_mod_hl2mp\/hud_flashlight.obj
+         .\Release_mod_hl2mp\/hud_health.obj
+         .\Release_mod_hl2mp\/hud_poisondamageindicator.obj
+         .\Release_mod_hl2mp\/hud_quickinfo.obj
+         .\Release_mod_hl2mp\/hud_squadstatus.obj
+         .\Release_mod_hl2mp\/hud_suitpower.obj
+         .\Release_mod_hl2mp\/hud_weaponselection.obj
+         .\Release_mod_hl2mp\/hud_zoom.obj
+         .\Release_mod_hl2mp\/script_intro_shared.obj
+         .\Release_mod_hl2mp\/shieldproxy.obj
+         .\Release_mod_hl2mp\/vgui_rootpanel_hl2.obj
+         .\Release_mod_hl2mp\/c_hl2mp_player.obj
+         .\Release_mod_hl2mp\/c_te_hl2mp_shotgun_shot.obj
+         .\Release_mod_hl2mp\/clientmode_hl2mpnormal.obj
+         .\Release_mod_hl2mp\/hl2mp_gamerules.obj
+         .\Release_mod_hl2mp\/hl2mp_player_shared.obj
+         .\Release_mod_hl2mp\/hl2mp_weapon_parse.obj
+         .\Release_mod_hl2mp\/backgroundpanel.obj
+         .\Release_mod_hl2mp\/hl2mp_hud_chat.obj
+         .\Release_mod_hl2mp\/hl2mp_hud_target_id.obj
+         .\Release_mod_hl2mp\/hl2mp_hud_team.obj
+         .\Release_mod_hl2mp\/hl2mpclientscoreboard.obj
+         .\Release_mod_hl2mp\/hl2mptextwindow.obj
+         .\Release_mod_hl2mp\/hud_deathnotice.obj
+         .\Release_mod_hl2mp\/weapon_357.obj
+         .\Release_mod_hl2mp\/weapon_ar2.obj
+         .\Release_mod_hl2mp\/weapon_crossbow.obj
+         .\Release_mod_hl2mp\/weapon_crowbar.obj
+         .\Release_mod_hl2mp\/weapon_frag.obj
+         .\Release_mod_hl2mp\/weapon_hl2mpbase.obj
+         .\Release_mod_hl2mp\/weapon_hl2mpbase_machinegun.obj
+         .\Release_mod_hl2mp\/weapon_hl2mpbasebasebludgeon.obj
+         .\Release_mod_hl2mp\/weapon_hl2mpbasehlmpcombatweapon.obj
+         .\Release_mod_hl2mp\/weapon_physcannon.obj
+         .\Release_mod_hl2mp\/weapon_pistol.obj
+         .\Release_mod_hl2mp\/weapon_rpg.obj
+         .\Release_mod_hl2mp\/weapon_shotgun.obj
+         .\Release_mod_hl2mp\/weapon_slam.obj
+         .\Release_mod_hl2mp\/weapon_smg1.obj
+         .\Release_mod_hl2mp\/weapon_stunstick.obj
+         .\Release_mod_hl2mp\/stdafx.obj
+         .\Release_mod_hl2mp\/in_sixense.obj
+         .\Release_mod_hl2mp\/in_sixense_gesture_bindings.obj
+         .\Release_mod_hl2mp\/sixense_convars.obj
+         .\Release_mod_hl2mp\/c_basetempentity.obj
+         .\Release_mod_hl2mp\/c_effects.obj
+         .\Release_mod_hl2mp\/c_impact_effects.obj
+         .\Release_mod_hl2mp\/c_movie_explosion.obj
+         .\Release_mod_hl2mp\/c_particle_fire.obj
+         .\Release_mod_hl2mp\/c_particle_smokegrenade.obj
+         .\Release_mod_hl2mp\/c_prop_vehicle.obj
+         .\Release_mod_hl2mp\/c_recipientfilter.obj
+         .\Release_mod_hl2mp\/c_smoke_trail.obj
+         .\Release_mod_hl2mp\/c_smokestack.obj
+         .\Release_mod_hl2mp\/c_steamjet.obj
+         .\Release_mod_hl2mp\/c_stickybolt.obj
+         .\Release_mod_hl2mp\/c_te.obj
+         .\Release_mod_hl2mp\/c_te_armorricochet.obj
+         .\Release_mod_hl2mp\/c_te_basebeam.obj
+         .\Release_mod_hl2mp\/c_te_beamentpoint.obj
+         .\Release_mod_hl2mp\/c_te_beaments.obj
+         .\Release_mod_hl2mp\/c_te_beamfollow.obj
+         .\Release_mod_hl2mp\/c_te_beamlaser.obj
+         .\Release_mod_hl2mp\/c_te_beampoints.obj
+         .\Release_mod_hl2mp\/c_te_beamring.obj
+         .\Release_mod_hl2mp\/c_te_beamringpoint.obj
+         .\Release_mod_hl2mp\/c_te_beamspline.obj
+         .\Release_mod_hl2mp\/c_te_bloodsprite.obj
+         .\Release_mod_hl2mp\/c_te_bloodstream.obj
+         .\Release_mod_hl2mp\/c_te_breakmodel.obj
+         .\Release_mod_hl2mp\/c_te_bspdecal.obj
+         .\Release_mod_hl2mp\/c_te_bubbles.obj
+         .\Release_mod_hl2mp\/c_te_bubbletrail.obj
+         .\Release_mod_hl2mp\/c_te_clientprojectile.obj
+         .\Release_mod_hl2mp\/c_te_decal.obj
+         .\Release_mod_hl2mp\/c_te_dynamiclight.obj
+         .\Release_mod_hl2mp\/c_te_effect_dispatch.obj
+         .\Release_mod_hl2mp\/c_te_energysplash.obj
+         .\Release_mod_hl2mp\/c_te_explosion.obj
+         .\Release_mod_hl2mp\/c_te_fizz.obj
+         .\Release_mod_hl2mp\/c_te_footprint.obj
+         .\Release_mod_hl2mp\/c_te_glassshatter.obj
+         .\Release_mod_hl2mp\/c_te_glowsprite.obj
+         .\Release_mod_hl2mp\/c_te_impact.obj
+         .\Release_mod_hl2mp\/c_te_killplayerattachments.obj
+         .\Release_mod_hl2mp\/c_te_largefunnel.obj
+         .\Release_mod_hl2mp\/c_te_legacytempents.obj
+         .\Release_mod_hl2mp\/c_te_muzzleflash.obj
+         .\Release_mod_hl2mp\/c_te_particlesystem.obj
+         .\Release_mod_hl2mp\/c_te_physicsprop.obj
+         .\Release_mod_hl2mp\/c_te_playerdecal.obj
+         .\Release_mod_hl2mp\/c_te_projecteddecal.obj
+         .\Release_mod_hl2mp\/c_te_showline.obj
+         .\Release_mod_hl2mp\/c_te_smoke.obj
+         .\Release_mod_hl2mp\/c_te_sparks.obj
+         .\Release_mod_hl2mp\/c_te_sprite.obj
+         .\Release_mod_hl2mp\/c_te_spritespray.obj
+         .\Release_mod_hl2mp\/c_te_worlddecal.obj
+         .\Release_mod_hl2mp\/c_testtraceline.obj
+         .\Release_mod_hl2mp\/c_tracer.obj
+         .\Release_mod_hl2mp\/fx.obj
+         .\Release_mod_hl2mp\/fx_discreetline.obj
+         .\Release_mod_hl2mp\/fx_envelope.obj
+         .\Release_mod_hl2mp\/fx_line.obj
+         .\Release_mod_hl2mp\/fx_sparks.obj
+         .\Release_mod_hl2mp\/particlesphererenderer.obj
+         .\Release_mod_hl2mp\/smoke_fog_overlay.obj
+         .\Release_mod_hl2mp\/bonelist.obj
+         .\Release_mod_hl2mp\/entity_client_tools.obj
+         .\Release_mod_hl2mp\/toolframework_client.obj
+         ..\..\lib\public\bitmap.lib
+         ..\..\lib\public\choreoobjects.lib
+         ..\..\lib\public\dmxloader.lib
+         ..\..\lib\common\libcurl.lib
+         ..\..\lib\public\libprotobuf.lib
+         ..\..\lib\public\libz.lib
+         ..\..\lib\public\mathlib.lib
+         ..\..\lib\public\matsys_controls.lib
+         ..\..\lib\public\particles.lib
+         ..\..\lib\public\steam_api.lib
+         ..\..\lib\public\tier0.lib
+         ..\..\lib\public\tier1.lib
+         ..\..\lib\public\tier2.lib
+         ..\..\lib\public\tier3.lib
+         ..\..\lib\public\vgui_controls.lib
+         ..\..\lib\public\vstdlib.lib
+         ..\..\lib\public\vtf.lib
+            Creating library .\Release_mod_hl2mp\\client.lib and object .\Release_mod_hl2mp\\client.exp
+         client_hl2mp.vcxproj -> E:\cryoffear\source-sdk-2013\mp\src\game\client\.\Release_mod_hl2mp\client.dll
+       PostBuildEvent:
+         if not exist "..\..\..\game\mod_hl2mp\bin\." mkdir "..\..\..\game\mod_hl2mp\bin\."
+         copy "E:\cryoffear\source-sdk-2013\mp\src\game\client\Release_mod_hl2mp\client.dll" "..\..\..\game\mod_hl2mp\bin\.\client.dll"
+         if ERRORLEVEL 1 goto BuildEventFailed
+         if exist "E:\cryoffear\source-sdk-2013\mp\src\game\client\Release_mod_hl2mp\client.map" copy "E:\cryoffear\source-sdk-2013\mp\src\game\client\Release_mod_hl2mp\client.map" ..\..\..\game\mod_hl2mp\bin\.\client.map
+         copy "E:\cryoffear\source-sdk-2013\mp\src\game\client\Release_mod_hl2mp\client.pdb" ..\..\..\game\mod_hl2mp\bin\.\client.pdb
+         if ERRORLEVEL 1 goto BuildEventFailed
+         goto BuildEventOK
+         :BuildEventFailed
+         echo *** ERROR! PostBuildStep FAILED for Client (HL2MP)! EXE or DLL is probably running. ***
+         del /q "E:\cryoffear\source-sdk-2013\mp\src\game\client\Release_mod_hl2mp\client.dll"
+         exit 1
+         :BuildEventOK
+         
+         :VCEnd
+                 1 file(s) copied.
+                 1 file(s) copied.
+     1>Done Building Project "E:\cryoffear\source-sdk-2013\mp\src\game\client\client_hl2mp.vcxproj" (Rebuild target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:01:52.24
+Time Elapsed 00:03:54.82

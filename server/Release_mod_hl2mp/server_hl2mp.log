@@ -1,4 +1,4 @@
-﻿Build started 4/23/2016 9:10:56 PM.
+﻿Build started 4/27/2016 6:35:05 PM.
      1>Project "E:\cryoffear\source-sdk-2013\mp\src\game\server\server_hl2mp.vcxproj" on node 2 (Rebuild target(s)).
      1>PreBuildEvent:
          if EXIST ..\..\..\game\mod_hl2mp\bin\.\server.dll for /f "delims=" %%A in ('attrib "..\..\..\game\mod_hl2mp\bin\.\server.dll"') do set valveTmpIsReadOnly="%%A"
@@ -100,9 +100,6 @@
          baseentity.cpp
          baseentity_shared.cpp
          baseflex.cpp
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\basecombatweapon_shared.cpp(128): error C2065: 'viewmodel_adjust_enabled' : undeclared identifier
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\basecombatweapon_shared.cpp(128): error C2228: left of '.GetBool' must have class/struct/union
-                 type is 'unknown-type'
          basegrenade_concussion.cpp
          basegrenade_contact.cpp
          basegrenade_shared.cpp
@@ -113,16 +110,6 @@
          baseprojectile.cpp
          baseviewmodel.cpp
          baseviewmodel_shared.cpp
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\baseviewmodel_shared.cpp(703): error C2039: 'm_flIronsightedTime' : is not a member of 'CBaseCombatWeapon'
-                 e:\cryoffear\source-sdk-2013\mp\src\game\shared\basecombatweapon_shared.h(177) : see declaration of 'CBaseCombatWeapon'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\baseviewmodel_shared.cpp(704): error C2039: 'IsIronsighted' : is not a member of 'CBaseCombatWeapon'
-                 e:\cryoffear\source-sdk-2013\mp\src\game\shared\basecombatweapon_shared.h(177) : see declaration of 'CBaseCombatWeapon'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\baseviewmodel_shared.cpp(716): error C2039: 'GetIronsightPositionOffset' : is not a member of 'CBaseCombatWeapon'
-                 e:\cryoffear\source-sdk-2013\mp\src\game\shared\basecombatweapon_shared.h(177) : see declaration of 'CBaseCombatWeapon'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\baseviewmodel_shared.cpp(721): error C2039: 'GetIronsightAngleOffset' : is not a member of 'CBaseCombatWeapon'
-                 e:\cryoffear\source-sdk-2013\mp\src\game\shared\basecombatweapon_shared.h(177) : see declaration of 'CBaseCombatWeapon'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\baseviewmodel_shared.cpp(728): error C2084: function 'void CBaseViewModel::CalcViewModelView(CBasePlayer *,const Vector &,const QAngle &)' already has a body
-                 e:\cryoffear\source-sdk-2013\mp\src\game\shared\baseviewmodel_shared.h(56) : see previous definition of 'CalcViewModelView'
          beam_shared.cpp
          bitstring.cpp
          bmodels.cpp
@@ -307,91 +294,10 @@
          sceneentity.cpp
          sceneentity_shared.cpp
          scratchpad_gamedll_helpers.cpp
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6579): error C2601: 'CBasePlayer::BumpWeapon' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
          scripted.cpp
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6673): error C2601: 'CBasePlayer::RemovePlayerItem' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6697): error C2601: 'CBasePlayer::ShowViewModel' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6706): error C2601: 'CBasePlayer::ShowCrosshair' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6721): error C2601: 'CBasePlayer::BodyAngles' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6735): error C2601: 'CBasePlayer::BodyTarget' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6762): error C2601: 'CBasePlayer::UpdateClientData' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6866): error C2601: 'CBasePlayer::RumbleEffect' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6881): error C2601: 'CBasePlayer::EnableControl' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6890): error C2601: 'CBasePlayer::CheckTrainUpdate' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6910): error C2601: 'CBasePlayer::ShouldAutoaim' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6922): error C2601: 'CBasePlayer::GetAutoaimVector' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6935): error C2601: 'CBasePlayer::GetAutoaimVector' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6948): error C2601: 'CBasePlayer::GetAutoaimVector' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7015): error C2601: 'CBasePlayer::GetAutoaimScore' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7051): error C2601: 'CBasePlayer::AutoaimDeflection' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7261): error C2601: 'CBasePlayer::ResetAutoaim' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7280): error C2601: 'CBasePlayer::Weapon_CanUse' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7290): error C2601: 'CBasePlayer::Weapon_Drop' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7325): error C2601: 'CBasePlayer::Weapon_DropSlot' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7348): error C2601: 'CBasePlayer::Weapon_Equip' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7373): error C2601: 'CBasePlayer::HasNamedPlayerItem' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7474): error C2601: 'CBasePlayer::ChangeTeam' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7525): error C2601: 'CBasePlayer::LockPlayerInPlace' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7542): error C2601: 'CBasePlayer::UnlockPlayer' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7552): error C2601: 'CBasePlayer::ClearUseEntity' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7569): error C2601: 'CBasePlayer::HideViewModels' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7584): warning C4822: 'CBasePlayer::ClientCommand::CStripWeapons::InputStripWeapons' : local class member function does not have a body
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7585): warning C4822: 'CBasePlayer::ClientCommand::CStripWeapons::InputStripWeaponsAndSuit' : local class member function does not have a body
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7587): warning C4822: 'CBasePlayer::ClientCommand::CStripWeapons::StripWeapons' : local class member function does not have a body
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7588): error C2246: 'CBasePlayer::ClientCommand::CStripWeapons::m_DataMap' : illegal static data member in locally defined class
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7588): warning C4822: 'CBasePlayer::ClientCommand::CStripWeapons::GetBaseMap' : local class member function does not have a body
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7588): error C2892: local class shall not have member templates
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7588): warning C4813: 'DataMapAccess' : a friend function of a local class must have been previously declared
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7588): error C2701: 'DataMapAccess' : a function template cannot be a friend of a local class
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7588): warning C4813: 'DataMapInit' : a friend function of a local class must have been previously declared
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7588): error C2701: 'DataMapInit' : a function template cannot be a friend of a local class
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7588): warning C4822: 'CBasePlayer::ClientCommand::CStripWeapons::GetDataDescMap' : local class member function does not have a body
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7588): error C3640: 'CBasePlayer::ClientCommand::CStripWeapons::GetDataDescMap' : a referenced or virtual member function of a local class must be defined
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7593): error C2655: 'CBasePlayer::ClientCommand::CStripWeapons::m_DataMap' : definition or redeclaration illegal in current scope
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7588) : see declaration of 'CBasePlayer::ClientCommand::CStripWeapons::m_DataMap'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7593): error C2601: 'CBasePlayer::ClientCommand::CStripWeapons::GetDataDescMap' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7593): error C2601: 'CBasePlayer::ClientCommand::CStripWeapons::GetBaseMap' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7593): error C2951: template declarations are only permitted at global, namespace, or class scope
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7593): error C2870: 'CStripWeapons_DataDescInit' : a namespace definition must appear either at file scope or immediately within another namespace definition
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7593): error C2143: syntax error : missing ';' before '<'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7593): error C2365: 'DataMapInit' : redefinition; previous definition was 'function'
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7593) : see declaration of 'DataMapInit'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7600): error C2143: syntax error : missing ';' before '{'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7601): error C2065: 'data' : undeclared identifier
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7601): error C3861: 'StripWeapons': identifier not found
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7606): error C2601: 'CBasePlayer::ClientCommand::CStripWeapons::InputStripWeaponsAndSuit' : local function definitions are illegal
-                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(6323): this line contains a '{' which has not yet been matched
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7606): fatal error C1903: unable to recover from previous error(s); stopping compilation
          scriptedtarget.cpp
+     1>e:\cryoffear\source-sdk-2013\mp\src\game\server\player.cpp(7834): error C2039: 'Weapon_GetLast' : is not a member of 'CBasePlayer'
+                 e:\cryoffear\source-sdk-2013\mp\src\game\server\player.h(237) : see declaration of 'CBasePlayer'
          sendproxy.cpp
          sequence_Transitioner.cpp
          serverbenchmark_base.cpp
@@ -594,14 +500,6 @@
          weapon_shotgun.cpp
          weapon_slam.cpp
          weapon_smg1.cpp
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(333): error C2059: syntax error : 'bad suffix on number'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(333): error C2146: syntax error : missing ')' before identifier 'f'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(333): error C2660: 'SharedRandomFloat' : function does not take 2 arguments
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(333): error C2059: syntax error : ')'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(334): error C2059: syntax error : 'bad suffix on number'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(334): error C2146: syntax error : missing ')' before identifier 'f'
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(334): error C2660: 'SharedRandomFloat' : function does not take 2 arguments
-     1>e:\cryoffear\source-sdk-2013\mp\src\game\shared\hl2mp\weapon_pistol.cpp(334): error C2059: syntax error : ')'
          weapon_stunstick.cpp
          nav_area.cpp
          nav_colors.cpp
@@ -674,4 +572,4 @@
 
 Build FAILED.
 
-Time Elapsed 00:02:40.21
+Time Elapsed 00:04:03.44

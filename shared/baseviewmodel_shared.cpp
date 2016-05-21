@@ -11,27 +11,121 @@
 #if defined( CLIENT_DLL )
 #include "iprediction.h"
 #include "prediction.h"
-#include "client_virtualreality.h"
-#include "sourcevr/isourcevirtualreality.h"
+// cin: 070105 - ironsight mode changes
+#include "convar.h"
+#include "c_hl2mp_player.h"
+#include "weapon_hl2mpbase.h"
 #else
 #include "vguiscreen.h"
 #endif
 
-#if defined( CLIENT_DLL ) && defined( SIXENSE )
-#include "sixense/in_sixense.h"
-#include "sixense/sixense_convars_extern.h"
-#endif
-
-#ifdef SIXENSE
-extern ConVar in_forceuser;
-#include "iclientmode.h"
-#endif
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
 #define VIEWMODEL_ANIMATION_PARITY_BITS 3
 #define SCREEN_OVERLAY_MATERIAL "vgui/screens/vgui_overlay"
+
+
+//more iron sights
+//ALL BELOW IS NEW
+#if defined( CLIENT_DLL )
+void ExpWpnTestOffset(ConVar *pConVar, char *pszString);
+ConVar   cl_exp_test_wpn_offset("cl_exp_test_wpn_offset", "0", 0, "Tests weapon offsets",
+	(FnChangeCallback_t)ExpWpnTestOffset);
+
+ConVar   cl_exp_test_wpn_offset_x("cl_exp_test_wpn_offset_x", "0");
+ConVar   cl_exp_test_wpn_offset_y("cl_exp_test_wpn_offset_y", "0");
+ConVar   cl_exp_test_wpn_offset_z("cl_exp_test_wpn_offset_z", "0");
+
+ConVar   cl_exp_test_wpn_ori_offset_x("cl_exp_test_wpn_ori_offset_x", "0");
+ConVar   cl_exp_test_wpn_ori_offset_y("cl_exp_test_wpn_ori_offset_y", "0");
+ConVar   cl_exp_test_wpn_ori_offset_z("cl_exp_test_wpn_ori_offset_z", "0");
+
+// cin: 070105 - applies existing weapon offsets when
+// entering test mode (this will not be called upon
+// weapon change, so beware)
+// this mode should only be used for calibrating the
+// ironsighted mode offests for a particular weapon
+void ExpWpnTestOffset(ConVar *pConVar, char *pszString)
+{
+	CBasePlayer *pPlayer = UTIL_PlayerByIndex(engine->GetLocalPlayer());
+	if (pPlayer)
+	{
+		CWeaponHL2MPBase *pWeapon = dynamic_cast<CWeaponHL2MPBase *>(pPlayer->GetActiveWeapon());
+		if (pWeapon)
+		{
+			cl_exp_test_wpn_offset_x.SetValue(pWeapon->GetHL2MPWpnData().m_expOffset.x);
+			cl_exp_test_wpn_offset_y.SetValue(pWeapon->GetHL2MPWpnData().m_expOffset.y);
+			cl_exp_test_wpn_offset_z.SetValue(pWeapon->GetHL2MPWpnData().m_expOffset.z);
+
+			cl_exp_test_wpn_ori_offset_x.SetValue(pWeapon->GetHL2MPWpnData().m_expOriOffset.x);
+			cl_exp_test_wpn_ori_offset_y.SetValue(pWeapon->GetHL2MPWpnData().m_expOriOffset.y);
+			cl_exp_test_wpn_ori_offset_z.SetValue(pWeapon->GetHL2MPWpnData().m_expOriOffset.z);
+		}
+	}
+}
+
+
+// last time ironsighted mode was toggled
+float gIronsightedTime(0.0f);
+
+float gMoveTime(0.2f); //Jorg40 - Seconds to use to move the model up to players view
+
+// I bound this to a key for testing(i.e. bind [ ironsight_toggle)
+CON_COMMAND(ironsight_toggle, "toggles ironsight mode for the current weapon")
+{
+	if (gpGlobals->curtime - gIronsightedTime < 0.5f)
+		return;
+
+	CBasePlayer *pPlayer = UTIL_PlayerByIndex(engine->GetLocalPlayer());
+	if (pPlayer)
+	{
+		C_BaseViewModel  *pVm = pPlayer->GetViewModel();
+		if (pVm)
+		{
+			pPlayer->m_Local.m_iHideHUD ^= HIDEHUD_CROSSHAIR;
+			pVm->m_bExpSighted ^= true;
+			gIronsightedTime = gpGlobals->curtime;
+		}
+	}
+}
+
+void CalcExpWpnOffsets(CBasePlayer *owner, Vector &pos, QAngle &ang)
+{
+	Vector   forward, right, up, offset;
+
+	// this is a simple test mode to help determine the proper values
+	// to place in the weapon script
+	if (cl_exp_test_wpn_offset.GetBool())
+	{
+		ang.x += cl_exp_test_wpn_ori_offset_x.GetFloat();
+		ang.y += cl_exp_test_wpn_ori_offset_y.GetFloat();
+		ang.z += cl_exp_test_wpn_ori_offset_z.GetFloat();
+		offset.Init(cl_exp_test_wpn_offset_x.GetFloat(),
+			cl_exp_test_wpn_offset_y.GetFloat(),
+			cl_exp_test_wpn_offset_z.GetFloat());
+	}
+	else
+	{
+		CWeaponHL2MPBase *pWeapon = dynamic_cast<CWeaponHL2MPBase *>(ToHL2MPPlayer(owner)->GetActiveWeapon());
+		if (pWeapon)
+		{
+			ang += pWeapon->GetHL2MPWpnData().m_expOriOffset;
+			offset = pWeapon->GetHL2MPWpnData().m_expOffset;
+		}
+	}
+
+	// get eye direction angles
+	AngleVectors(ang, &forward, &right, &up);
+
+	// apply the offsets
+	pos += forward   * offset.x;
+	pos += right     * offset.y;
+	pos += up        * offset.z;
+}
+#endif
+//
 
 //-----------------------------------------------------------------------------
 // Purpose: 
@@ -79,13 +173,21 @@ void CBaseViewModel::Precache( void )
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-void CBaseViewModel::Spawn( void )
+void CBaseViewModel::Spawn(void)
 {
-	Precache( );
-	SetSize( Vector( -8, -4, -2), Vector(8, 4, 2) );
-	SetSolid( SOLID_NONE );
-}
+	Precache();
+	SetSize(Vector(-8, -4, -2), Vector(8, 4, 2));
+	SetSolid(SOLID_NONE);
 
+#ifdef CLIENT_DLL
+	// cin: 070105 - ironsighted mode changes
+	m_bExpSighted = false;
+	m_expFactor = 0.0f;
+	gIronsightedTime = 0.0f;
+#endif
+
+
+}
 
 #if defined ( CSTRIKE_DLL ) && !defined ( CLIENT_DLL )
 #define VGUI_CONTROL_PANELS
@@ -382,7 +484,8 @@ void CBaseViewModel::SendViewModelMatchingSequence( int sequence )
 #include "ivieweffects.h"
 #endif
 
-void CBaseViewModel::CalcViewModelView( CBasePlayer *owner, const Vector& eyePosition, const QAngle& eyeAngles )
+//iron
+void CBaseViewModel::CalcViewModelView(CBasePlayer *owner, const Vector& eyePosition, const QAngle& eyeAngles)
 {
 	// UNDONE: Calc this on the server?  Disabled for now as it seems unnecessary to have this info on the server
 #if defined( CLIENT_DLL )
@@ -392,72 +495,41 @@ void CBaseViewModel::CalcViewModelView( CBasePlayer *owner, const Vector& eyePos
 
 	CBaseCombatWeapon *pWeapon = m_hWeapon.Get();
 	//Allow weapon lagging
-	if ( pWeapon != NULL )
+	if (pWeapon != NULL)
 	{
 #if defined( CLIENT_DLL )
-		if ( !prediction->InPrediction() )
+		if (!prediction->InPrediction())
 #endif
 		{
-			// add weapon-specific bob 
-			pWeapon->AddViewmodelBob( this, vmorigin, vmangles );
-#if defined ( CSTRIKE_DLL )
-			CalcViewModelLag( vmorigin, vmangles, vmangoriginal );
-#endif
+			pWeapon->AddViewmodelBob(this, vmorigin, vmangles);
+			CalcViewModelLag(vmorigin, vmangles, vmangoriginal);
 		}
 	}
-	// Add model-specific bob even if no weapon associated (for head bob for off hand models)
-	AddViewModelBob( owner, vmorigin, vmangles );
-#if !defined ( CSTRIKE_DLL )
-	// This was causing weapon jitter when rotating in updated CS:S; original Source had this in above InPrediction block  07/14/10
-	// Add lag
-	CalcViewModelLag( vmorigin, vmangles, vmangoriginal );
-#endif
 
 #if defined( CLIENT_DLL )
-	if ( !prediction->InPrediction() )
+	if (!prediction->InPrediction())
 	{
 		// Let the viewmodel shake at about 10% of the amplitude of the player's view
-		vieweffects->ApplyShake( vmorigin, vmangles, 0.1 );	
+		vieweffects->ApplyShake(vmorigin, vmangles, 0.1);
 	}
 #endif
+	// cin: 070105 - ironsighted mode changes
+	// get the wpn offsets
+	CalcExpWpnOffsets(owner, vmorigin, vmangles);
 
-	if( UseVR() )
-	{
-		g_ClientVirtualReality.OverrideViewModelTransform( vmorigin, vmangles, pWeapon && pWeapon->ShouldUseLargeViewModelVROverride() );
-	}
+	// get delta time for 1 sec interpolation and interpolate to/from positional offset
+	float delta((gpGlobals->curtime - gIronsightedTime) / gMoveTime);
+	m_expFactor = (m_bExpSighted) ?
+		(delta > 1.0f) ? 1.0f : delta :
+		(delta > 1.0f) ? 0.0f : 1.0f - delta;
+	Vector difPos(vmorigin - eyePosition);
+	vmorigin = eyePosition + (difPos * m_expFactor);
 
-	SetLocalOrigin( vmorigin );
-	SetLocalAngles( vmangles );
-
-#ifdef SIXENSE
-	if( g_pSixenseInput->IsEnabled() && (owner->GetObserverMode()==OBS_MODE_NONE) && !UseVR() )
-	{
-		const float max_gun_pitch = 20.0f;
-
-		float viewmodel_fov_ratio = g_pClientMode->GetViewModelFOV()/owner->GetFOV();
-		QAngle gun_angles = g_pSixenseInput->GetViewAngleOffset() * -viewmodel_fov_ratio;
-
-		// Clamp pitch a bit to minimize seeing back of viewmodel
-		if( gun_angles[PITCH] < -max_gun_pitch )
-		{ 
-			gun_angles[PITCH] = -max_gun_pitch; 
-		}
-
-#ifdef WIN32 // ShouldFlipViewModel comes up unresolved on osx? Mabye because it's defined inline? fixme
-		if( ShouldFlipViewModel() ) 
-		{
-			gun_angles[YAW] *= -1.0f;
-		}
+	SetLocalOrigin(vmorigin);
+	SetLocalAngles(vmangles);
 #endif
-
-		vmangles = EyeAngles() +  gun_angles;
-
-		SetLocalAngles( vmangles );
-	}
-#endif
-#endif
-
 }
+//
 
 //-----------------------------------------------------------------------------
 // Purpose: 
@@ -692,81 +764,4 @@ bool CBaseViewModel::GetAttachmentVelocity( int number, Vector &originVel, Quate
 
 #endif
 
-void CBaseViewModel::CalcIronsights(Vector &pos, QAngle &ang)
-{
-	CBaseCombatWeapon *pWeapon = GetOwningWeapon();
 
-	if (!pWeapon)
-		return;
-
-	//get delta time for interpolation
-	float delta = (gpGlobals->curtime - pWeapon->m_flIronsightedTime) * 2.5f; //modify this value to adjust how fast the interpolation is
-	float exp = (pWeapon->IsIronsighted()) ?
-		(delta > 1.0f) ? 1.0f : delta : //normal blending
-		(delta > 1.0f) ? 0.0f : 1.0f - delta; //reverse interpolation
-
-	if (exp <= 0.001f) //fully not ironsighted; save performance
-		return;
-
-	Vector newPos = pos;
-	QAngle newAng = ang;
-
-	Vector vForward, vRight, vUp, vOffset;
-	AngleVectors(newAng, &vForward, &vRight, &vUp);
-	vOffset = pWeapon->GetIronsightPositionOffset();
-
-	newPos += vForward * vOffset.x;
-	newPos += vRight * vOffset.y;
-	newPos += vUp * vOffset.z;
-	newAng += pWeapon->GetIronsightAngleOffset();
-	//fov is handled by CBaseCombatWeapon
-
-	pos += (newPos - pos) * exp;
-	ang += (newAng - ang) * exp;
-}
-void CBaseViewModel::CalcViewModelView(CBasePlayer *owner, const Vector& eyePosition, const QAngle& eyeAngles)
-{
-	// UNDONE: Calc this on the server?  Disabled for now as it seems unnecessary to have this info on the server
-#if defined( CLIENT_DLL )
-	QAngle vmangoriginal = eyeAngles;
-	QAngle vmangles = eyeAngles;
-	Vector vmorigin = eyePosition;
-
-	CBaseCombatWeapon *pWeapon = m_hWeapon.Get();
-	//Allow weapon lagging
-	//only if not in ironsight-mode
-	if (pWeapon == NULL || !pWeapon->IsIronsighted())
-	{
-		if (pWeapon != NULL)
-		{
-#if defined( CLIENT_DLL )
-			if (!prediction->InPrediction())
-#endif
-			{
-				// add weapon-specific bob 
-				pWeapon->AddViewmodelBob(this, vmorigin, vmangles);
-			}
-		}
-
-		// Add model-specific bob even if no weapon associated (for head bob for off hand models)
-		AddViewModelBob(owner, vmorigin, vmangles);
-
-		// Add lag
-		CalcViewModelLag(vmorigin, vmangles, vmangoriginal);
-
-#if defined( CLIENT_DLL )
-		if (!prediction->InPrediction())
-		{
-			// Let the viewmodel shake at about 10% of the amplitude of the player's view
-			vieweffects->ApplyShake(vmorigin, vmangles, 0.1);
-		}
-#endif
-	}
-
-	CalcIronsights(vmorigin, vmangles);
-
-	SetLocalOrigin(vmorigin);
-	SetLocalAngles(vmangles);
-
-#endif
-}
